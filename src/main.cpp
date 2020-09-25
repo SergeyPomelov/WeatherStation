@@ -1,59 +1,75 @@
 #include <Arduino.h>
-#include <Functions.h>
+#include <Constants.h>
+#include <LED.h>
+#include <LCD.h>
+#include <BME280.h>
+#include <Esp.h>
+#include <Hibernate.h>
 
-void update() {
+void update()
+{
   led(0U, 0U, 50U);
   readSensors();
   sendData();
-  updateDisplay();
+  lcdUpdateData();
   led(0U, 0U, 0U);
 }
 
-void setup() {
-  
-  pinMode(LED_BUILTIN, OUTPUT);
-  pinMode(LED_RED, OUTPUT);
-  pinMode(LED_GREEN, OUTPUT);
+void setup()
+{
+
+  ledInit();
   pinMode(LED_BLUE, OUTPUT);
 
   digitalWrite(LED_BUILTIN, HIGH);
-  esp8266.begin(9600U);
-  Serial.begin(9600U); while (!Serial);
-  initDisplay();
+  espBegin();
+  Serial.begin(9600U);
+  while (!Serial);
+  lcdInit();
 
   bool status = true;
-  lcd.setCursor(0U, 0U);
-  lcd.print(F("WiFi... "));
-  if (connectWiFi()) {
-    lcd.print(F("OK"));
-  } else {
-    lcd.print(F("ERROR"));
+  lcdSetCursor(0U, 0U);
+  lcdPrint(F("WiFi... "));
+  if (connectWiFi())
+  {
+    lcdPrint(F("OK"));
+  }
+  else
+  {
+    lcdPrint(F("ERROR"));
     status = false;
   }
 
-  lcd.setCursor(0U, 1U);
-  lcd.print(F("BME280... "));
+  lcdSetCursor(0U, 1U);
+  lcdPrint(F("BME280... "));
   Serial.print(F("BME280... "));
-  if (initBME280()) {
-    lcd.print(F("OK"));
+  if (initBME280())
+  {
+    lcdPrint(F("OK"));
     Serial.println(F("OK"));
-  } else {
-    lcd.print(F("ERROR"));
+  }
+  else
+  {
+    lcdPrint(F("ERROR"));
     Serial.println(F("ERROR"));
     status = false;
   }
 
-  if (status) {
-    lcd.clear();
+  if (status)
+  {
+    lcdClear();
     update();
-  } else {
-    lcd.print(F("Self-check failed"));
+  }
+  else
+  {
+    lcdPrint(F("Self-check failed"));
     Serial.println(F("Self-check failed"));
   }
   digitalWrite(LED_BUILTIN, LOW);
 }
 
-void loop() {
+void loop()
+{
   hibernate();
   update();
 }
