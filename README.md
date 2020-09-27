@@ -7,7 +7,7 @@ Arduino Based Online Weather Station's Firmware.
 The source code is verified to be compatible with [Platform IO](https://platformio.org/) and [Arduino IDE](https://www.arduino.cc/).
 
 ### Configure
-- Setup in **Secreth.h** your own WiFi.  
+- Setup in **Secret.h** your WiFi.  
 - Change the data sending logic to your own.
 
 ### Hardware
@@ -21,7 +21,7 @@ The source code is verified to be compatible with [Platform IO](https://platform
 - DS3231 Mini RTC. Get time offline.
 - MH-Z19 CO2 Sensor or better.
 - 2004 i2c Display. Or any i2c display.
-- Lux sensor. Photoresistor is enough if it's just for backlit control, not for an accurate light level data.
+- Lux sensor. A photoresistor is enough if it's just for backlit control, not for an accurate light level data.
 - RGB Led Module. Any.
 - Resistors and other common electronic parts.
 
