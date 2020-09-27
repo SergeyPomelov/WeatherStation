@@ -1,8 +1,10 @@
 # Weather Station
+![Weather](https://i.ibb.co/4W5jHH2/weather.jpg)
+
 Arduino Based Online Weather Station's Firmware.
 
 ### Build
-The source code is verified compitable with [Platform IO](https://platformio.org/) and [Arduino IDE](https://www.arduino.cc/).
+The source code is verified to be compatible with [Platform IO](https://platformio.org/) and [Arduino IDE](https://www.arduino.cc/).
 
 ### Configure
 - Setup in **Secreth.h** your own WiFi.  
@@ -10,7 +12,7 @@ The source code is verified compitable with [Platform IO](https://platformio.org
 
 ### Hardware
 - [Arduino Mini](https://store.arduino.cc/usa/arduino-mini-05).
-- Any 3.3V - 5V DC Arduino Compitable Power Supply.
+- Any 3.3V - 5V DC Arduino compitable Power Supply.
 - Temperature, Humidity DHT-22.
 - ESP-01-S or any esp8266 WiFi module with Serial.
 
