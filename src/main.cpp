@@ -10,7 +10,7 @@ void update()
 {
   led(0U, 0U, 50U);
   readSensors();
-  sendData();
+  // sendData();
   lcdUpdateData();
   led(0U, 0U, 0U);
 }
@@ -62,6 +62,7 @@ void setup()
   }
   else
   {
+    lcdSetCursor(0U, 2U);
     lcdPrint(F("Self-check failed"));
     Serial.println(F("Self-check failed"));
   }

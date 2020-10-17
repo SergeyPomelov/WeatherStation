@@ -6,7 +6,7 @@ Adafruit_BME280 bme;
 
 bool initBME280()
 {
-  bool result = bme.begin(BME280_ADDRESS, &Wire);
+  bool result = bme.begin(BME280_ADDRESS_ALTERNATE, &Wire);
   bme.setSampling(Adafruit_BME280::MODE_FORCED,
                   Adafruit_BME280::SAMPLING_X1, // temperature
                   Adafruit_BME280::SAMPLING_X1, // pressure
@@ -20,7 +20,8 @@ void readSensors()
   bme.takeForcedMeasurement();
   dispTemp = bme.readTemperature();
   dispHum = bme.readHumidity();
-  dispPres = bme.readPressure() / 100.0F;
-  photoValue = analogRead(A0);
-  Serial.println(String("Temp ") + dispTemp + " Hum " + dispHum + " Press " + dispPres + " Photo " + photoValue);
+  dispPres = bme.readPressure();
+  photoValue = analogRead(A3);
+  coValue = analogRead(A2);
+  Serial.println(String("Temp ") + dispTemp + " Hum " + dispHum + " Press " + dispPres + " Photo " + photoValue + " CO " + coValue);
 }

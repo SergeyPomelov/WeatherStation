@@ -32,5 +32,5 @@ void lcdUpdateData()
   lcd.setCursor(0U, 0U);
   lcd.print(String(dispTemp, 2) + "C " + String(dispHum) + "% " + String(dispPres) + "hPa");
   lcd.setCursor(0U, 1U);
-  lcd.print(String(photoValue) + "Lux");
+  lcd.print(String(photoValue) + "Lux " + String(coValue) + "ppm");
 }
