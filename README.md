@@ -1,6 +1,12 @@
 # Weather Station
 ![Weather](https://i.ibb.co/4W5jHH2/weather.jpg)
 
+![Repository Top Language](https://img.shields.io/github/languages/top/SergeyPomelov/WeatherStation)
+![Languages](https://img.shields.io/github/languages/count/SergeyPomelov/WeatherStation)
+![Github Repository Size](https://img.shields.io/github/repo-size/SergeyPomelov/WeatherStation)
+![Github Open Issues](https://img.shields.io/github/issues/SergeyPomelov/WeatherStation)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 Arduino Based Online Weather Station's Firmware.
 
 ### Build
